@@ -33,10 +33,10 @@
 		private function load_vars($tmpl, $name) 
 		{
 			$this->configs['style_dir'] = './templates/'.$tmpl.'/';
-			if(file_exists('./templates/'.$tmpl.'/parts/'.$name.'.html')) 
+			if(file_exists('./templates/'.$tmpl.'/_parts/'.$name.'.html')) 
 			{
 				$this->buffer_layout = file_get_contents('./templates/'.$tmpl.'/layout.html');
-				$this->buffer = file_get_contents('./templates/'.$tmpl.'/parts/'.$name.'.html');
+				$this->buffer = file_get_contents('./templates/'.$tmpl.'/_parts/'.$name.'.html');
 				$this->buffer_layout = str_replace('{body}', $this->buffer, $this->buffer_layout);
 				foreach($this->configs as $parameter => $value) 
 				{
@@ -53,7 +53,7 @@
 			} 
 			else 
 			{
-				self::ShowDebug("Сообщение шаблонизатора: шаблон `/templates/{$tmpl}/parts/{$name}.html` не найден");
+				self::ShowDebug("Сообщение шаблонизатора: шаблон `/templates/{$tmpl}/_parts/{$name}.html` не найден");
 			}
 		}
 		

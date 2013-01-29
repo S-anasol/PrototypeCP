@@ -1,0 +1,38 @@
+<h2>{content}</h2>
+<table class="zebra">
+	<thead>
+		<tr>
+			<th>{position}</th>        
+			<th>{status}</th>
+			<th>{nick_name}</th>
+			<th>{base_level}</th>
+			<th>{job_level}</th>
+			<th>{job_name}</th>
+			<th>{guild}</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td></td>        
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tfoot>    
+	
+	{loop=10}
+	<tr>
+		<td>{char[i].6}</td>        
+		<td>{char[i].5}</td>
+		<td>{char[i].0}</td>
+		<td>{char[i].1}</td>
+		<td>{char[i].2}</td>
+		<td>{char[i].3}</td>
+		<td>{char[i].4}</td>
+	</tr>   
+	{/loop}
+	
+</table>
