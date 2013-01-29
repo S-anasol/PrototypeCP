@@ -1,0 +1,377 @@
+body{
+	background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+	font: 13px 'trebuchet MS', Arial, Helvetica;
+}
+
+h2, p {
+	text-align: center;
+	color: #444;
+	text-shadow: 0 1px 0 #fff;	
+}
+
+a {
+	color: #2A679F;
+}
+
+.status_on {
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+    background: -moz-radial-gradient(40px 30px, circle, #fff, #fff, #00ff00);
+    background: -webkit-radial-gradient(40px 30px, circle, #fff, #fff, #00ff00);
+    background: -o-radial-gradient(40px 30px, circle, #fff, #fff, #00ff00);
+    background: -ms-radial-gradient(40px 30px, circle, #fff, #fff, #00ff00);
+    background: radial-gradient(40px 30px, circle, #fff, #fff, #00ff00);
+	
+	
+	/* webkit chrome, safari, mobile */
+	-webkit-animation-name: spin; 
+	-webkit-animation-duration: 3s; /* 3 seconds */
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-timing-function: linear;
+	
+	/* mozilla ff */
+	-moz-animation-name: spin; 
+	-moz-animation-duration: 3s; /* 3 seconds */
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-timing-function: linear;
+	
+	/* microsoft ie */
+	-ms-animation-name: spin; 
+	-ms-animation-duration: 3s; /* 3 seconds */
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-timing-function: linear;
+}
+
+.status_off {
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+    background: -moz-radial-gradient(40px 30px, circle, #fff, #fff, #ff0000);
+    background: -webkit-radial-gradient(40px 30px, circle, #fff, #fff, #ff0000);
+    background: -o-radial-gradient(40px 30px, circle, #fff, #fff, #ff0000);
+    background: -ms-radial-gradient(40px 30px, circle, #fff, #fff, #ff0000);
+    background: radial-gradient(40px 30px, circle, #fff, #fff, #ff0000);
+	
+	
+	/* webkit chrome, safari, mobile */
+	-webkit-animation-name: spin; 
+	-webkit-animation-duration: 3s; /* 3 seconds */
+	-webkit-animation-iteration-count: infinite; 
+	-webkit-animation-timing-function: linear;
+	
+	/* mozilla ff */
+	-moz-animation-name: spin; 
+	-moz-animation-duration: 3s; /* 3 seconds */
+	-moz-animation-iteration-count: infinite; 
+	-moz-animation-timing-function: linear;
+	
+	/* microsoft ie */
+	-ms-animation-name: spin; 
+	-ms-animation-duration: 3s; /* 3 seconds */
+	-ms-animation-iteration-count: infinite; 
+	-ms-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+	from { -ms-transform: rotate(0deg); }
+	to { -ms-transform: rotate(360deg); }
+}
+
+#content {
+    width: 600px;
+	min-height: 600px;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+#header {
+    width: 600px;
+	min-height: 120px;
+    margin: 0 auto;
+	background: url("./logo.png") no-repeat center;
+}
+
+#menu, #menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#footer {
+	width: 960px;
+	height: 40px;
+	margin: 0 auto;
+	border: 1px solid #222;
+	color: #999;
+	background-color: #111;
+	background-image: -moz-linear-gradient(#444, #111); 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));	
+	background-image: -webkit-linear-gradient(#444, #111);	
+	background-image: -o-linear-gradient(#444, #111);
+	background-image: -ms-linear-gradient(#444, #111);
+	background-image: linear-gradient(#444, #111);
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+}
+
+#menu {
+	width: 960px;
+	margin: 0 auto;
+	border: 1px solid #222;
+	background-color: #111;
+	background-image: -moz-linear-gradient(#444, #111); 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));	
+	background-image: -webkit-linear-gradient(#444, #111);	
+	background-image: -o-linear-gradient(#444, #111);
+	background-image: -ms-linear-gradient(#444, #111);
+	background-image: linear-gradient(#444, #111);
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+}
+
+#menu:before,
+#menu:after {
+	content: "";
+	display: table;
+}
+
+#menu:after {
+	clear: both;
+}
+
+#menu {
+	zoom:1;
+}
+
+#menu li {
+	float: left;
+	border-right: 1px solid #222;
+	-moz-box-shadow: 1px 0 0 #444;
+	-webkit-box-shadow: 1px 0 0 #444;
+	box-shadow: 1px 0 0 #444;
+	position: relative;
+}
+
+#menu a {
+	float: left;
+	padding: 12px 30px;
+	color: #999;
+	text-transform: uppercase;
+	font: bold 12px Arial, Helvetica;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #000;
+}
+
+#menu li:hover > a {
+	color: #fafafa;
+}
+
+*html #menu li a:hover { /* Только для IE6 */
+	color: #fafafa;
+}
+
+#menu ul {
+	margin: 20px 0 0 0;
+	_margin: 0; /*Только для IE6*/
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	z-index: 9999;    
+	background: #444;
+	background: -moz-linear-gradient(#444, #111);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));
+	background: -webkit-linear-gradient(#444, #111);    
+	background: -o-linear-gradient(#444, #111);	
+	background: -ms-linear-gradient(#444, #111);	
+	background: linear-gradient(#444, #111);
+	-moz-box-shadow: 0 -1px rgba(255,255,255,.3);
+	-webkit-box-shadow: 0 -1px 0 rgba(255,255,255,.3);
+	box-shadow: 0 -1px 0 rgba(255,255,255,.3);	
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;  
+}
+
+#menu li:hover > ul {
+	opacity: 1;
+	visibility: visible;
+	margin: 0;
+}
+
+#menu ul ul {
+	top: 0;
+	left: 150px;
+	margin: 0 0 0 20px;
+	_margin: 0; /*Только для IE6*/
+	-moz-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+	-webkit-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+	box-shadow: -1px 0 0 rgba(255,255,255,.3);		
+}
+
+#menu ul li {
+	float: none;
+	display: block;
+	border: 0;
+	_line-height: 0; /*Только для IE6*/
+	-moz-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+	-webkit-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+	box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+}
+
+#menu ul li:last-child {   
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;    
+}
+
+#menu ul a {    
+	padding: 10px;
+	width: 130px;
+	_height: 10px; /*Только для IE6*/
+	display: block;
+	white-space: nowrap;
+	float: none;
+	text-transform: none;
+}
+
+#menu ul a:hover {
+	background-color: #0186ba;
+	background-image: -moz-linear-gradient(#04acec,  #0186ba);	
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+	background-image: -webkit-linear-gradient(#04acec, #0186ba);
+	background-image: -o-linear-gradient(#04acec, #0186ba);
+	background-image: -ms-linear-gradient(#04acec, #0186ba);
+	background-image: linear-gradient(#04acec, #0186ba);
+}
+
+#menu ul li:first-child > a {
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+
+#menu ul li:first-child > a:after {
+	content: '';
+	position: absolute;
+	left: 40px;
+	top: -6px;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #444;
+}
+
+#menu ul ul li:first-child a:after {
+	left: -6px;
+	top: 50%;
+	margin-top: -6px;
+	border-left: 0;	
+	border-bottom: 6px solid transparent;
+	border-top: 6px solid transparent;
+	border-right: 6px solid #3b3b3b;
+}
+
+#menu ul li:first-child a:hover:after {
+	border-bottom-color: #04acec; 
+}
+
+#menu ul ul li:first-child a:hover:after {
+	border-right-color: #0299d3; 
+	border-bottom-color: transparent; 	
+}
+
+#menu ul li:last-child > a {
+	-moz-border-radius: 0 0 3px 3px;
+	-webkit-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+}
+
+table {
+	*border-collapse: collapse; /* Для IE7 и старше */
+	border-spacing: 0;
+	width: 100%;    
+}
+
+/*----------------------*/
+
+.zebra td, .zebra th {
+	padding: 10px;
+	border-bottom: 1px solid #f2f2f2;    
+}
+
+.zebra tbody tr:nth-child(even) {
+	background: #f5f5f5;
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+	-moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+	box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+}
+
+.zebra th {
+	text-align: left;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+	border-bottom: 1px solid #ccc;
+	background-color: #eee;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+	background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+	background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
+	background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
+	background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
+	background-image:         linear-gradient(top, #f5f5f5, #eee);
+}
+
+.zebra th:first-child {
+	-moz-border-radius: 6px 0 0 0;
+	-webkit-border-radius: 6px 0 0 0;
+	border-radius: 6px 0 0 0;  
+}
+
+.zebra th:last-child {
+	-moz-border-radius: 0 6px 0 0;
+	-webkit-border-radius: 0 6px 0 0;
+	border-radius: 0 6px 0 0;
+}
+
+.zebra tfoot td {
+	border-bottom: 0;
+	border-top: 1px solid #fff;
+	background-color: #f1f1f1;  
+}
+
+.zebra tfoot td:first-child {
+	-moz-border-radius: 0 0 0 6px;
+	-webkit-border-radius: 0 0 0 6px;
+	border-radius: 0 0 0 6px;
+}
+
+.zebra tfoot td:last-child {
+	-moz-border-radius: 0 0 6px 0;
+	-webkit-border-radius: 0 0 6px 0;
+	border-radius: 0 0 6px 0;
+}  
