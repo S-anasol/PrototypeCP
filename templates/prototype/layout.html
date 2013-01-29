@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<title>{site_name} - {title}</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta http-equiv="Content-Type" content="text/html; charset={charset}" />
+		<link rel="stylesheet" href="{style_dir}style.css" type="text/css" media="screen, projection" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				if ($.browser.msie && $.browser.version.substr(0,1)<7)
+				{
+					$('li').has('ul').mouseover(function(){
+						$(this).children('ul').css('visibility','visible');
+						}).mouseout(function(){
+						$(this).children('ul').css('visibility','hidden');
+					})
+				}
+			});        
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			{online}
+		</div>
+		<ul id="menu">
+			{menu}
+		</ul>
+		<div id="content">
+			{body}
+		</div>
+		<div id="footer">
+			{stats}
+		</div>
+	</body>
+</html>
