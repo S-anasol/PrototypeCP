@@ -5,17 +5,13 @@
 		private $buffer_loop, $buffer, $buffer_while, $buffer_if, $configs, $start, $end, $start_if, $end_if, $else_if, $tmpl, $name;
 		public $loops = 0;
 		
-		
-		function __construct($conf, $tmpl, $name) 
+		function start($conf, $tmpl, $name) 
 		{
+			global $start_time, $pdb;
 			$this->configs = $conf;
 			$this->tmpl = $tmpl;
 			$this->name = $name;
-		}
-		
-		function __destruct() 
-		{
-			global $start_time, $pdb;
+			
 			$end_time = microtime();
 			$end_array = explode(" ",$end_time);
 			$end_time = $end_array[1] + $end_array[0];
@@ -29,31 +25,32 @@
 			$this->output();
 		}
 		
-		
 		private function load_vars($tmpl, $name) 
 		{
 			$this->configs['style_dir'] = './templates/'.$tmpl.'/';
 			if(file_exists('./templates/'.$tmpl.'/_parts/'.$name.'.html')) 
 			{
-				$this->buffer_layout = file_get_contents('./templates/'.$tmpl.'/layout.html');
 				$this->buffer = file_get_contents('./templates/'.$tmpl.'/_parts/'.$name.'.html');
-				$this->buffer_layout = str_replace('{body}', $this->buffer, $this->buffer_layout);
-				foreach($this->configs as $parameter => $value) 
-				{
-					if(gettype($value) != "array") 
-					{
-						$this->buffer_layout = str_replace('{'.$parameter.'}', $value, $this->buffer_layout);
-					} 
-					else 
-					{ 
-						$this->loop(); 
-						$this->loops++;
-					}
-				}
 			} 
 			else 
 			{
+				$this->buffer = "Шаблон `/templates/{$tmpl}/_parts/{$name}.html` не найден";
 				self::ShowDebug("Сообщение шаблонизатора: шаблон `/templates/{$tmpl}/_parts/{$name}.html` не найден");
+			}
+			
+			$this->buffer_layout = file_get_contents('./templates/'.$tmpl.'/layout.html');
+			$this->buffer_layout = str_replace('{body}', $this->buffer, $this->buffer_layout);
+			foreach($this->configs as $parameter => $value) 
+			{
+				if(gettype($value) != "array") 
+				{
+					$this->buffer_layout = str_replace('{'.$parameter.'}', $value, $this->buffer_layout);
+				} 
+				else 
+				{ 
+					$this->loop(); 
+					$this->loops++;
+				}
 			}
 		}
 		
@@ -154,20 +151,35 @@
 			}
 		}
 		
-		private function load_lang_strings()
+		public function load_lang_strings($string = false)
 		{
-			while(strpos($this->buffer_layout, "{msg") >= 1) 
+			if($string)
 			{
-				if (preg_match("/\\{\bmsg (\w+)\\}/", $this->buffer_layout, $matches)) 
+				if(defined($string))
 				{
-					if(defined($matches[1]))
+					return constant($string);
+				}
+				else 
+				{
+					self::ShowDebug("Сообщение шаблонизатора: Фраза {$string} не найдена");
+					return $string;
+				}
+			}
+			else
+			{
+				while(strpos($this->buffer_layout, "{msg") >= 1) 
+				{
+					if (preg_match("/\\{\bmsg (\w+)\\}/", $this->buffer_layout, $matches)) 
 					{
-						$this->buffer_layout = preg_replace("/{msg (\w+)}/", constant($matches[1]),$this->buffer_layout, 1);
-					}
-					else 
-					{
-						$this->buffer_layout = preg_replace("/{msg (\w+)}/", $matches[1],$this->buffer_layout, 1);
-						self::ShowDebug("Фраза {$matches[1]} не найдена");
+						if(defined($matches[1]))
+						{
+							$this->buffer_layout = preg_replace("/{msg (\w+)}/", constant($matches[1]),$this->buffer_layout, 1);
+						}
+						else 
+						{
+							$this->buffer_layout = preg_replace("/{msg (\w+)}/", $matches[1],$this->buffer_layout, 1);
+							self::ShowDebug("Сообщение шаблонизатора: Фраза {$matches[1]} не найдена");
+						}
 					}
 				}
 			}

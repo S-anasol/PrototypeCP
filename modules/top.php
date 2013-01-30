@@ -12,7 +12,7 @@
 	$configs['job_name']			= msg_top_job_name;
 	$configs['guild']				= msg_top_guild;
     
-	$chars = $pdb->Query("select `name`, `base_level`, `job_level`, `class`, `guild_id`, `online` from `char` order by `pvp` desc limit 10");
+	$chars = $pdb->Query("select `name`, `base_level`, `job_level`, `class`, `guild_id`, `online` from `char` order by `base_exp` desc limit 10");
 	
 	
 	$i = 1;
@@ -24,9 +24,9 @@
 		$char->job_level,
 		$pro->get_class($char->class),
 		$pro->get_guild($char->guild_id),
-		($char->online) ?msg_char_status_1:msg_char_status_0,
+		($char->online) ? msg_char_status_1:msg_char_status_0,
 		$i
-					); 
+		); 
 					
 		$i++;
 	}

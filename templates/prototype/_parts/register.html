@@ -1,0 +1,46 @@
+<h2>{content}</h2>
+
+{if errors}
+<div class="error">{errors}</div>
+{else}
+{/if}
+
+{if success}
+<div class="success">{success}</div>
+{else}
+{/if}
+
+<form action="" method="post">
+	<table class="zebra">
+		<thead>
+			<tr>
+				<th colspan="2">
+					
+				</th>
+			</tr>
+		</thead>
+		<tr>
+			<td width="50%"><label for="user">{msg msg_reg_user}</label></td>
+			<td><input type="text" name="user" value="{user}"></td>
+		</tr>
+		<tr>
+			<td><label for="password">{msg msg_reg_password}</label></td>
+			<td><input type="password" name="password"></td>
+		</tr>
+		<tr>
+			<td><label for="password_rep">{msg msg_reg_password_rep}</label></td>
+			<td><input type="password" name="password_rep"></td>
+		</tr>
+		<tr>
+			<td><label for="email">{msg msg_reg_email}</label></td>
+			<td><input type="text" name="email" value="{email}"></td>
+		</tr>
+		<tfoot>
+			<tr>
+				<tr>
+					<td colspan="2"><input type="submit" name="submit" value="{msg msg_reg_submit}"></td>
+				</tr>
+			</tr>
+		</tfoot>  
+	</table>
+</form>																
