@@ -27,6 +27,6 @@
 	define("emblem_lifetime",				43200,				true); // update guild emblems once at 12h (`guild` folder)
 	
 	//configuration was edited
-	define("config_edited",					true,				true);
+	define("config_edited",					false,				true);
 	
 ?>
