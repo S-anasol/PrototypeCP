@@ -53,18 +53,9 @@
 			
 			if($err == 0) 
 			{
-				$time = time();
 				$password = md5($password);
-				$ip = $_SERVER["REMOTE_ADDR"];
-				if($type == 1) 
-				{
-					$pdb->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `verify`, `website`, `free_lance`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', '{$verify}', '{$web_link}', '{$fl_name}', 'no', '{$time}', '{$ip}')");
-				}
-				else 
-				{	
-					$verify = $web_link = $fl_name = null;
-					$pdb->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', 'no', '{$time}', '{$ip}')");
-				}
+				$sex = (rand(0,1)) ? "F":"M"; // random sex why not
+				$pdb->Query("INSERT INTO `login` (`userid`, `user_pass`, `sex`, `email`) VALUES ('{$user}', '{$password}', '{$sex}','{$email}');");
 				$success = msg_reg_success;
 				return array($error, $success);
 			} 
