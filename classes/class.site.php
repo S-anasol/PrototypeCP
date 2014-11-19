@@ -3,7 +3,7 @@
 	class site {
 		
 		function __construct() {
-			//echo "<pre>Îáúåêò site ñîçäàí\n</pre>";
+			//echo "<pre>ÃÃ¡ÃºÃ¥ÃªÃ² site Ã±Ã®Ã§Ã¤Ã Ã­\n</pre>";
 		}
 		
 		function __destruct() {
@@ -11,7 +11,7 @@
 		
 		public function register($vars)
 		{
-			global $db;
+			global $pdb;
 			
 			$error = $success = "";
 			$err = 0;
@@ -22,7 +22,7 @@
 				$error[] = msg_reg_user_err;
 				$err = 1;
 			}
-			else if($db->Query("select count(*) from `login` where `userid`='{$user}'") >= 1)
+			else if($pdb->Query("select count(*) from `login` where `userid`='{$user}'") >= 1)
 			{
 				$error[] = msg_reg_user_taken_err;
 				$err = 1;
@@ -45,7 +45,7 @@
 				$error[] = msg_reg_email_err;
 				$err = 1;
 			} 
-			else if($db->Query("select count(*) from `login` where `email`='{$email}'") >= 1)
+			else if($pdb->Query("select count(*) from `login` where `email`='{$email}'") >= 1)
 			{
 				$error[] = msg_reg_email_taken_err;
 				$err = 1;
@@ -58,12 +58,12 @@
 				$ip = $_SERVER["REMOTE_ADDR"];
 				if($type == 1) 
 				{
-					$db->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `verify`, `website`, `free_lance`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', '{$verify}', '{$web_link}', '{$fl_name}', 'no', '{$time}', '{$ip}')");
+					$pdb->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `verify`, `website`, `free_lance`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', '{$verify}', '{$web_link}', '{$fl_name}', 'no', '{$time}', '{$ip}')");
 				}
 				else 
 				{	
 					$verify = $web_link = $fl_name = null;
-					$db->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', 'no', '{$time}', '{$ip}')");
+					$pdb->Query("insert into `users` (`user_name`, `password`, `email`, `group`, `activated`, `register_date`, `register_ip`) values ('{$user}', '{$password}', '{$email}', '{$type}', 'no', '{$time}', '{$ip}')");
 				}
 				$success = msg_reg_success;
 				return array($error, $success);
@@ -77,7 +77,7 @@
 		
 		public function login($vars)
 		{
-			global $db, $session;
+			global $pdb, $session;
 			
 			$error = $success = "";
 			$err = 0;
@@ -94,7 +94,7 @@
 			{
 				
 				$password = md5($password);
-				$result = $db->Query("select * from `login` where `userid`='{$user_name}'");
+				$result = $pdb->Query("select * from `login` where `userid`='{$user_name}'");
 				if($result == null || $password != $result->password) 
 				{
 					$error[] = msg_login_pas_user_err;
@@ -147,36 +147,11 @@
 			else
 			$page = $pagedefault;
 			
-			//$pager = "Ñòğàíèöû:";
+			//$pager = "Ã‘Ã²Ã°Ã Ã­Ã¨Ã¶Ã»:";
 			
 			
 			if ($count) {
 				$pagerarr = array();
-				/*  $dotted = 0;
-					$dotspace = 3;
-					$dotend = $pages - $dotspace;
-					$curdotend = $page - $dotspace;
-					$curdotstart = $page + $dotspace;
-					for ($i = 0; $i < $pages; $i++) {
-					if (($i >= $dotspace && $i <= $curdotend) || ($i >= $curdotstart && $i < $dotend)) {
-					if (!$dotted)
-					$pagerarr[] = "";
-					$dotted = 1;
-					continue;
-					}
-					$dotted = 0;
-					$start = $i * $rpp + 1;
-					$end = $start + $rpp - 1;
-					if ($end > $count)
-					$end = $count;
-					
-					$text = $i+1;
-					if ($i != $page)
-					$pagerarr[] = "<a title=\"$start&nbsp;-&nbsp;$end\" href=\"{$href}num_page=$i\" style=\"text-decoration: none;\">$text</a>";
-					else
-					$pagerarr[] = "<b>$text</b>";
-					
-				}*/
 				$page_prev = $page-1;
 				$page_next = $page+1;
 				$pagerarr[] = "<ul>";
