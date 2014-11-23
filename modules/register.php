@@ -22,4 +22,5 @@
 		foreach($_POST as $key => $value) { $configs[$key] = $value; }
 	}
 	
+	$template->render($tmpl,$configs);
 ?>

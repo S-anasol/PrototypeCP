@@ -12,10 +12,10 @@
 	
 	//Database Settings
 	define("mysql_host",					"127.0.0.1:3306",	true);
-	define("mysql_user",					"root",				true);
-	define("mysql_password",				"",				true);
-	define("mysql_ragnarok_database",		"san",		true);
-	define("mysql_site_database",			"san",		true);
+	define("mysql_user",					"ragnarok",			true);
+	define("mysql_password",				"ragnarok",			true);
+	define("mysql_ragnarok_database",		"ragnarok",			true);
+	define("mysql_site_database",			"ragnarok",			true);
 	
 	//Server Setttings
 	define("server_host",					"127.0.0.1",		true);
@@ -27,6 +27,6 @@
 	define("emblem_lifetime",				43200,				true); // update guild emblems once at 12h (`guild` folder)
 	
 	//configuration was edited
-	define("config_edited",					false,				true);
+	define("config_edited",					true,				true);
 	
 ?>

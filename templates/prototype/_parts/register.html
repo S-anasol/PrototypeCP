@@ -1,4 +1,7 @@
-<h2>{content}</h2>
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>{{content}}</h2>
 
 {if errors}
 <div class="error">{errors}</div>
@@ -43,4 +46,5 @@
 			</tr>
 		</tfoot>  
 	</table>
-</form>																
+</form>
+{% endblock %}

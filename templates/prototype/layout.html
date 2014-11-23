@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8" />
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<title>{site_name} - {title}</title>
+		<title>{{title}} - {{site_name}}</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
-		<meta http-equiv="Content-Type" content="text/html; charset={charset}" />
-		<link rel="stylesheet" href="{style_dir}style.css" type="text/css" media="screen, projection" />
+		<meta http-equiv="Content-Type" content="text/html; charset={{charset}}" />
+		<link rel="stylesheet" href="templates/{{global.template}}/style.css" type="text/css" media="screen, projection" />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -24,16 +24,16 @@
 	</head>
 	<body>
 		<div id="header">
-			{online}
+			{{online}}
 		</div>
 		<ul id="menu">
-			{menu}
+			{{menu|raw}}
 		</ul>
 		<div id="content">
-			{body}
+			{% block content %}{% endblock %}
 		</div>
 		<div id="footer">
-			{stats}
+			{{stats}}
 		</div>
 	</body>
 </html>

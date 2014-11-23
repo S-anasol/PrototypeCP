@@ -1,0 +1,7 @@
+{
+    "require": {
+        "filp/whoops": "~1.0",
+        "php-activerecord/php-activerecord": "~1.1",
+        "twig/twig": "~1.16"
+    }
+}
